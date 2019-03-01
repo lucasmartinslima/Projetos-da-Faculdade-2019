@@ -12,4 +12,5 @@ Levantamento e análise de requisitos de um sistema de controle de frotas de ve�
 Fazer o levantamento e análise de um sistema para gerenciar e administrar frotas de veículos no território nacional.
 
 http://github.com - automatic!
-[GitHub](http://github.com)
+[Mais Sobre a Proposta](
+https://github.com/lucasmartinslima/Software-controle-frota-PIM-2019/wiki/SOFTWARE-DE-CONTROLE-DE-ROTA----PIM-2019)
