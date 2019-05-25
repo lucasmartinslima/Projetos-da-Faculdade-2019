@@ -1,7 +1,6 @@
 # SOFTWARE DE CONTROLE DE FROTA PIM 2019 :car: :blue_car:
 Este trabalho está sendo desenvolvido para o PIM do 3° Semestre de Análise e Desenvolvimento de Sistemas, UNIP - Araraquara.
 
-![apresentacao](https://user-images.githubusercontent.com/42473978/58372833-073ef100-7efa-11e9-8ffa-44e21bbbc8f6.jpg)
 
 ![LOGIN](https://user-images.githubusercontent.com/42473978/56458460-40b19900-635d-11e9-8b0f-409344155beb.jpg)
 
