@@ -1,0 +1,107 @@
+<!doctype>
+<html>
+<head>
+
+
+ <title> Lucas Martins - Desenvolvedor Web</title>
+ <meta charset="utf-7">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link href="style.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+
+
+
+</head>
+<body>
+
+<div class="Menu_todo">
+ 		<ul>
+		<li class="menu"> <img src="veiculo.png"> <br> <a href="#" > Veículos </a></li>
+ 		<li class="menu"> <img src="veiculo.png"> <br> <a href="#" > Motoristas </a></li>
+		<li class="menu"> <img src="veiculo.png"> <br> <a href="#" > Entrada/Saída </a></li>
+  		<li class="menu"> <img src="veiculo.png"> <br> <a href="#" > Viagens </a> </li>
+  		<li class="menu"> <img src="veiculo.png"> <br> <a href="#" > Manutenções</a> </li>
+  		<li class="menu"> <img src="veiculo.png"> <br> <a href="#" > Finanças</a> </li>
+  		<li class="menu"> <img src="veiculo.png"> <br> <a href="#" > Abastecimento </a> </li>
+  		<li class="menu"> <img src="veiculo.png"> <br> <a href="#" > Avisos </a> </li>
+  		<li class="menu"> <img src="veiculo.png"> <br> <a href="#" > Multas </a> </li>
+  		<li class="menu"> <img src="veiculo.png"> <br> <a href="#" > Seguros</a> </li>
+  		<li class="menu"> <img src="veiculo.png"> <br> <a href="#" > Relatórios</a> </li>
+</div>
+                          
+
+
+<div class="form_geral">
+
+
+<h2> VEÍCULOS </h2>
+
+
+<!-- Tab links -->
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'London')"id="defaultOpen" >REGISTRAR VEÍCULO</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')">LISTA DE VEÍCULOS</button>
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')">ALUGAR VEÍCULO</button>
+  <button class="tablinks" onclick="openCity(event, 'Brasil')">VEÍCULOS ALUGADOS</button>
+</div>
+
+<!-- Tab content -->
+<div id="London" class="tabcontent">
+<form>
+<input type="text" placeholder="Placa do veículo"> </input>
+<input type="text" placeholder="Cor"> </input>
+<input type="text" placeholder="Ano"> </input>
+</fomr>
+
+  <p>London is the capital city of England.</p>
+</div>
+
+<div id="Paris" class="tabcontent">
+  <h3>Paris</h3>
+  <p>Paris is the capital of France.</p> 
+</div>
+
+<div id="Tokyo" class="tabcontent">
+  <h3>Tokyo</h3>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
+
+<div id="Brasil" class="tabcontent">
+  <h3>Brasil</h3>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
+
+</div>
+
+<script>
+
+function openCity(evt, cityName) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+document.getElementById("defaultOpen").click();
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+body, html{
+border: 0px;
+margin: 0px;
+background-color: #efefef;
+font-family: 'Open Sans', sans-serif;
+}
+
+/* MENU PRINCIPAL */
+
+ul{
+
+list-style: none;
+padding: 0px;
+margin: 0px;
+}
+ul li{
+display: inline-block;
+text-align: center;
+}
+.Menu_todo{
+margin-top: 35px;
+margin-left: 5px;
+margin-right: 0px;
+}
+a{
+color: #8C8C8C;
+text-decoration: none;
+font-size: 14px;
+}
+.menu{
+margin-left: -5px;
+width: auto;
+min-width: 90px;
+height: 74px;
+background-color: #FFFFFF;
+border: solid 1px #DFDFDF;
+border-bottom: solid 0px #FFFFFF;
+padding: 0px;
+}
+
+.menu:hover{
+cursor:  pointer;
+height: 70px;
+border-bottom: solid 4px #9AC7DC;
+}
+
+img{
+width: 30px;
+padding-bottom: 5px;
+}
+
+h2{
+text-align: center;
+color: #9B9B9B;
+font-size: 35px;
+}
+
+
+/* TABS EX: VEICULOS, LISTAS DE VEICULOS */
+.form_geral{
+margin-top: 10px;
+margin-left: 50px;
+margin-right: 50px;
+}
+.tab {
+  overflow: hidden;
+  border: 1px solid #fff;
+  background-color: none;
+border-bottom: none;
+border: none;
+}
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  border-left: 2px solid #ddd;
+
+}
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #4c90ff;
+  color: white;
+  border-left: 2px solid #4c90ff;
+border-right: 2px solid #4c90ff;
+}
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 2px solid #4c90ff;
+  background-color: white;
+}
+
