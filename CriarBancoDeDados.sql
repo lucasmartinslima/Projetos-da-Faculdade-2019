@@ -1,6 +1,6 @@
 DROP TABLE veiculo CASCADE CONSTRAINTS;
 drop table funcionario;
-drop table motorista;
+drop table motorista CASCADE CONSTRAINTS;
 drop table pneus;
 drop table manutencao;
 drop table seguros;
@@ -8,11 +8,25 @@ drop table abastecimento;
 DROP TABLE gerente CASCADE CONSTRAINTS;
 drop table relatorio;
 drop table avisos;
+drop table utiliza;
+drop table entrada_saida;
+drop table viagens;
+drop table multa;
+drop table locatario CASCADE CONSTRAINTS;
+drop table veiculo_alugado;
 
 
 -- VEICULOS E SUAS LIGACOES 
+
+create table locatario( 
+cpf varchar2(11) not null, 
+nome varchar2(50), 
+cnh varchar2(20), 
+primary key (cpf) 
+);
+
 create table veiculo( 
-placa varchar2(10), 
+placa varchar2(10) not null, 
 km number(38), 
 tipo varchar2(40), 
 cor varchar2(25), 
@@ -20,6 +34,20 @@ modelo varchar2(25),
 chassi varchar2(30), 
 disponibilidade number(2), 
 primary key(placa) 
+);
+create table veiculo_alugado( 
+placa varchar2(10) not null, 
+km number(38), 
+tipo varchar2(40), 
+cor varchar2(25), 
+modelo varchar2(25), 
+chassi varchar2(30), 
+disponibilidade number(2), 
+data_locacao date,
+data_devolucao date,
+cpf_locatario varchar2(11),
+primary key(placa),
+foreign key (cpf_locatario) references locatario(cpf)
 );
     -- TABELA PNEUS
 create table pneus( 
@@ -121,6 +149,63 @@ primary key(n_seq),
 FOREIGN KEY (cpf) 
 REFERENCES gerente(cpf) 
 );
+
+
+create table utiliza(
+cpfMotorista varchar2(11) not null,
+placaVeiculo varchar2(10) not null,
+data_f date primary key,
+FOREIGN KEY (cpfMotorista) REFERENCES motorista(cpf),
+FOREIGN KEY (placaVeiculo) REFERENCES veiculo(placa)
+);
+
+
+create table entrada_saida(
+n_seq number(38),
+fk_cpfMotorista varchar2(11) not null,
+fk_placaVeiculo varchar2(10) not null,
+hora varchar(10),
+entrada_saida number(1),
+dataES date,
+primary key(n_seq),
+FOREIGN KEY (fk_cpfMotorista) REFERENCES motorista(cpf),
+FOREIGN KEY (fk_placaVeiculo) REFERENCES veiculo(placa)
+);
+
+create table viagens(
+n_seq number(38),
+dataV date,
+km number(28),
+situacao varchar2(1),
+rota varchar2(50),
+data_partida date,
+data_chegada date,
+
+fk_placa varchar2(10) not null,
+fk_cpf varchar2(11) not null,
+FOREIGN KEY (fk_cpf) REFERENCES motorista(cpf),
+FOREIGN KEY (fk_placa) REFERENCES veiculo(placa)
+
+);
+
+create table multa(
+cod_seq number(38),
+dataM date,
+valor number(28,2),
+cod_infracao varchar2(15),
+gravidade varchar2(10),
+descricao_multa varchar2(150),
+status_pagamento varchar2(1),
+localM varchar2(40),
+
+fk_placa varchar2(10) not null,
+fk_cpf varchar2(11) not null,
+FOREIGN KEY (fk_cpf) REFERENCES motorista(cpf),
+FOREIGN KEY (fk_placa) REFERENCES veiculo(placa)
+
+);
+
+
 
 
 insert into veiculo values ('abc-1234',440,'caminhao','azul','Volvo t-b9','eksf8548ge8',2);
