@@ -15,6 +15,9 @@ drop table multa;
 drop table locatario CASCADE CONSTRAINTS;
 drop table veiculo_alugado;
 
+drop table financas;
+drop table recebe_conta;
+drop table pagar_conta;
 
 -- VEICULOS E SUAS LIGACOES 
 
@@ -60,7 +63,7 @@ primary key(n_seq),
 FOREIGN KEY (placa) 
 REFERENCES veiculo(placa) 
 );
-    -- TABELA MANUTENÇÃO
+    -- TABELA MANUTENÃ‡ÃƒO
 create table manutencao( 
 cod_seq number(10), 
 placa varchar2(10) not null, 
@@ -96,7 +99,7 @@ FOREIGN KEY (placa)
 REFERENCES veiculo(placa) 
 );
 
--- TABELA FUNCIONARIO COM SUA GENENERALIZAÇÕES 
+-- TABELA FUNCIONARIO COM SUA GENENERALIZAÃ‡Ã•ES 
 create table funcionario( 
 cpf varchar2(11) not null, 
 nome varchar2(50), 
@@ -206,11 +209,59 @@ FOREIGN KEY (fk_placa) REFERENCES veiculo(placa)
 );
 
 
+create table financas(
+n_seq number(1),
+cpfGerente varchar(11),
+status number(1),
+titulo_conta varchar2(40),
+tipo_conta number(1),
+valor number(15,2),
+descricao varchar2(150),
+foreign key (cpfGerente) references gerente(cpf)
+);
+
+create table recebe_conta(
+n_seq number(1),
+cpfGerente varchar(11),
+status number(1),
+titulo_conta varchar2(40),
+valor number(15,2),
+descricao varchar2(150),
+devedor varchar2(50),
+foreign key (cpfGerente) references gerente(cpf)
+);
+
+create table pagar_conta(
+n_seq number(1),
+cpfGerente varchar(11),
+status number(1),
+titulo_conta varchar2(40),
+valor number(15,2),
+descricao varchar2(150),
+devedor varchar2(50),
+foreign key (cpfGerente) references gerente(cpf)
+);
 
 
+
+-- inserindo motorista 
+insert into motorista values ('42285166885','Lucas Martins', '991471398','454',sysdate,'654464',sysdate,1);
+
+-- inserindo veiculo
 insert into veiculo values ('abc-1234',440,'caminhao','azul','Volvo t-b9','eksf8548ge8',2);
+
+-- inserindo pneus utilizando chave estrangeira
 INSERT INTO pneus(n_seq,placa,tipo,aro,qnt) VALUES (2,'abc-1234','caminhao','e 230-ee',3);
+
+
+insert into utiliza values ('42285166885','abc-1234', sysdate);
+ 
+
 select * from veiculo;
 select * from pneus;
+select * from motorista;
+select * from utiliza;
+
 delete from pneus where placa = 'abc-1234';
+delete from utiliza where placaVeiculo = 'abc-1234';
 delete from veiculo where placa = 'abc-1234';
